@@ -1,0 +1,15 @@
+{%extends 'pages/base.html'%}
+
+{%block title%}Portfolio{%endblock%}
+
+{%block content%}
+
+        <section id= "portfolio-section">
+            {% for skill in skills %}
+                    <div id= "post-div">
+                        <h2><a href="/portfolio/{{skill.id}}/">{{ skill.name }}</a></h2>
+                        <p class= "experience">{{ skill.experience_years }} Years experience</p>
+                    </div>
+            {% endfor %}            
+        </section>
+{%endblock%}

@@ -1,0 +1,62 @@
+{% extends 'pages/base.html'%}
+
+{%block title%}Contact{%endblock%}
+
+{%block content%}
+
+<section id="contact-section">
+            
+            <div id="contact-main-div">
+                <div id="contact-info-div">
+                    <p>Email: example@gmail.com</p>
+                    <p>Mobile: +8801700000000</p>
+                    <p>Address: Kalmeshwar, Board Bazar, Gazipur-1704, Dhaka.</p>
+                </div>
+
+                <div class="divider">
+                    <span></span>
+                </div>
+
+                <div id="contact-form-div">
+
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" >
+
+                        {% csrf_token %}
+
+                        <div class="input-group">
+                            <label for="{{ form.name.id_for_label }}">Full Name</label>
+                            {{ form.name }}
+                            {{ form.name.errors }}
+                        </div>
+
+                        <div class="input-group">
+                            <label for="{{ form.email.id_for_label }}">Email</label>
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                            
+                        </div>
+
+                        <div class="input-group">
+                            <label for="{{ form.message.id_for_label }}">Write a Message</label>
+                            {{ form.message }}
+                            {{ form.message.errors }}
+                            
+                        </div>
+
+                        <div class="button-group">
+                            <button type="submit">Send</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </section>
+{%endblock%}

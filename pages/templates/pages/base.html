@@ -1,0 +1,55 @@
+{% load static %}
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Learning_Django, {% block title %} {% endblock %}</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}" />
+  </head>
+  <body>
+    <nav>
+      <div id="nav-logo">
+        <a href="/"
+          ><img
+            src="{% static 'pages/Django_logo.svg' %}"
+            alt="logo"
+            class="logo"
+        /></a>
+      </div>
+
+      <div id="nav_links">
+        <a href="/">Home</a>
+        <a href="/about/">About me</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact</a>
+        <a href="/portfolio/">Portfolio</a>
+
+        {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+      </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <footer>
+      <p>&copy;2026 Learning_Django</p>
+    </footer>
+  </body>
+</html>

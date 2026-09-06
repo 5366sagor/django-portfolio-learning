@@ -1,0 +1,20 @@
+{% extends "pages/base.html" %}
+
+{% block title %}{{skill.name}}{% endblock  %}
+
+
+{% block content %}
+
+    <section id="portfolio_detail_section">
+        {% include "pages/go_home.html" %}
+
+        <div id="portfolio_detail_div">
+
+            <h2>{{skill.name}}</h2>
+            <p>{{skill.experience_years}} Years Experience </p>
+            <p>{{skill.description}}</p>
+        </div>
+
+    </section>
+
+{% endblock  %}

@@ -1,0 +1,21 @@
+{% extends "pages/base.html" %}
+
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block content %}
+
+    <section id="blog_detail_section">
+        {% include "pages/go_home.html" %}
+
+        <div id="blog_detail_div">
+            <h1> {{ post.title }} </h1>
+            <p> {{ post.date }} </p>
+            <p> {{ post.content }} </p>
+        </div>
+
+    </section>
+
+
+{% endblock  %}
+
+

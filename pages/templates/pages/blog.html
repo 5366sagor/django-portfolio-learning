@@ -1,0 +1,17 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}blog{% endblock %}
+
+{% block content %}
+
+        <section id= "blog-section">
+
+            {% for post in posts %}
+                {% include "pages/post_card.html" %}
+            {% endfor %}
+                
+
+        </section>
+
+{% endblock %}
+
